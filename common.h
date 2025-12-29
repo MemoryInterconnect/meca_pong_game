@@ -13,22 +13,22 @@
 #include <signal.h>
 
 // Game dimensions
-#define FULL_WIDTH 133
+#define FULL_WIDTH 150
 #define FULL_HEIGHT 24
-#define VIEW_WIDTH 48        // 3/5 of 80 = 48
+#define VIEW_WIDTH 80
 #define PADDLE_HEIGHT 5
 #define PADDLE_COL_LEFT 2    // Left paddle x position
-#define PADDLE_COL_RIGHT 77  // Right paddle x position (FULL_WIDTH - 3)
+#define PADDLE_COL_RIGHT 147 // Right paddle x position (FULL_WIDTH - 3)
 
 // View offsets
 #define PLAYER1_VIEW_START 0
-#define PLAYER1_VIEW_END 47
-#define PLAYER2_VIEW_START 32
-#define PLAYER2_VIEW_END 79
+#define PLAYER1_VIEW_END 79
+#define PLAYER2_VIEW_START 70
+#define PLAYER2_VIEW_END 149
 
 // Ball settings
 #define BALL_CHAR '@'
-#define BALL_SPEED 0.5f
+#define BALL_SPEED 2.0f
 
 // Shared memory
 #define SHARED_FILE "/dev/mem"
