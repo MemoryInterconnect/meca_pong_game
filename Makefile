@@ -10,6 +10,6 @@ player2: player2.c common.h
 	$(CC) $(CFLAGS) -o player2 player2.c
 
 clean:
-	rm -f player1 player2 pong_shared.dat
+	rm -f player1 player2 
 
 .PHONY: all clean

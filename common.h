@@ -13,7 +13,7 @@
 #include <signal.h>
 
 // Game dimensions
-#define FULL_WIDTH 80
+#define FULL_WIDTH 133
 #define FULL_HEIGHT 24
 #define VIEW_WIDTH 48        // 3/5 of 80 = 48
 #define PADDLE_HEIGHT 5
@@ -28,7 +28,7 @@
 
 // Ball settings
 #define BALL_CHAR '@'
-#define BALL_SPEED 0.25f
+#define BALL_SPEED 0.5f
 
 // Shared memory
 #define SHARED_FILE "/dev/mem"
