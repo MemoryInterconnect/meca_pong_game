@@ -1,4 +1,5 @@
-CC = riscv64-linux-gnu-gcc
+#CC = riscv64-linux-gnu-gcc
+CC = gcc
 CFLAGS = -Wall -Wextra -O2 -static
 
 all: player1 player2

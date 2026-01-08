@@ -102,6 +102,13 @@ void draw_game(void) {
                 c = '#';
             }
 
+            // Draw right paddle
+            if (x == PADDLE_COL_RIGHT &&
+                y >= game->right_paddle_y &&
+                y < game->right_paddle_y + PADDLE_HEIGHT) {
+                c = '#';
+            }
+
             // Draw ball
             int ball_x = (int)game->ball_x;
             int ball_y = (int)game->ball_y;

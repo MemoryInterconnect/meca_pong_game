@@ -15,24 +15,29 @@ void draw_game(void) {
     printf("Player 1: %d | Player 2: %d", game->left_score, game->right_score);
     printf("\033[K\n");
 
-    // Draw game area (player 2 sees columns 32-79)
-    // We draw from local x=0 to VIEW_WIDTH, but map to global 32-79
+    // Draw game area (player 2 sees same space as player 1)
     for (int y = 0; y < FULL_HEIGHT; y++) {
-        for (int local_x = 0; local_x < VIEW_WIDTH; local_x++) {
-            int global_x = PLAYER2_VIEW_START + local_x;
+        for (int x = PLAYER2_VIEW_START; x <= PLAYER2_VIEW_END; x++) {
             char c = ' ';
 
             // Draw borders
             if (y == 0 || y == FULL_HEIGHT - 1) {
                 c = '-';
-            } else if (local_x == 0) {
+            } else if (x == PLAYER2_VIEW_START) {
                 c = '|';
-            } else if (local_x == VIEW_WIDTH - 1) {
+            } else if (x == PLAYER2_VIEW_END) {
                 c = '|';
             }
 
+            // Draw left paddle
+            if (x == PADDLE_COL_LEFT &&
+                y >= game->left_paddle_y &&
+                y < game->left_paddle_y + PADDLE_HEIGHT) {
+                c = '#';
+            }
+
             // Draw right paddle
-            if (global_x == PADDLE_COL_RIGHT &&
+            if (x == PADDLE_COL_RIGHT &&
                 y >= game->right_paddle_y &&
                 y < game->right_paddle_y + PADDLE_HEIGHT) {
                 c = '#';
@@ -41,7 +46,7 @@ void draw_game(void) {
             // Draw ball
             int ball_x = (int)game->ball_x;
             int ball_y = (int)game->ball_y;
-            if (global_x == ball_x && y == ball_y &&
+            if (x == ball_x && y == ball_y &&
                 ball_x >= PLAYER2_VIEW_START && ball_x <= PLAYER2_VIEW_END) {
                 c = BALL_CHAR;
             }
